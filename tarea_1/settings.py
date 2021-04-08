@@ -25,7 +25,7 @@ SECRET_KEY = '=onrc0z65!$7p52rg0@cltw7^kb7og(1n*++j-l2f9v2^l@8@z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://iic3103-tarea-1-fcartoni.herokuapp.com/']
+ALLOWED_HOSTS = ['iic3103-tarea-1-fcartoni.herokuapp.com']
 
 
 # Application definition
