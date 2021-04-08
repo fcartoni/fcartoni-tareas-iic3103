@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d401fccb-6cb8-4118-9ca4-a35c4b888800" name="Default Changelist" comment="" />
+    <list default="true" id="d401fccb-6cb8-4118-9ca4-a35c4b888800" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/tarea_1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tarea_1/settings.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,5 +56,16 @@
       <updated>1617661163457</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
