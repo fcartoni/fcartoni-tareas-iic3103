@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T{{episodios_nro_nombre.0.n_temporada}} {{episodios_nro_nombre.0.serie}}</title>
+</head>
+{% if episodios_nro_nombre.0.n_temporada %}
+    <form method=POST action="/app_tarea_1/buscar_personaje/">
+        {% csrf_token %}
+        <input type="search" placeholder="Busca un personaje" name="searched">
+        <button type="submit">Buscar</button>
+    </form>
+    <h1>{{episodios_nro_nombre.0.serie}}</h1>
+    <h2>Temporada {{episodios_nro_nombre.0.n_temporada}} </h2>
+    <body>
+    <ul>
+        {% for i in episodios_nro_nombre %}
+        <li>{{i.numero}}: <a href="/app_tarea_1/{{episodios_nro_nombre.0.serie}}/{{episodios_nro_nombre.0.n_temporada}}/{{i.numero}}/">{{i.titulo}}</a></li>
+
+        {% endfor %}
+    </ul>
+</body>
+{% else %}
+    <h1> ¡Esa temporada (o serie) no existe! Error 404</h1>
+    <p>Presiona <a href="/app_tarea_1/">aquí </a> para volver al inicio</p>
+{% endif %}
+</html>

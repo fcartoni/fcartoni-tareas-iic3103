@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle Episodios</title>
+</head>
+
+{% if detalles.0 %}
+    <form method=POST action="/app_tarea_1/buscar_personaje/">
+        {% csrf_token %}
+        <input type="search" placeholder="Busca un personaje" name="searched">
+        <button type="submit">Buscar</button>
+    </form>
+    <h1>{{detalles.0.episode}}: {{detalles.0.title}}</h1>
+    <body>
+    <ul>
+        {% for key, categoria in detalles.0.items %}
+        {% if key == 'characters'%}
+        <li>{{key}}:
+        {% for i in detalles.0.characters %}
+            <a href="/app_tarea_1/personajes/{{i}}/">{{i}}</a>
+        {% endfor %}</li>
+        {% else %}
+        <li>{{ key }} : {{ categoria }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    </body>
+{% else %}
+    <h1> ¡Ese episodio (o temporada o serie) no existe! Error: 404</h1>
+    <p>Presiona <a href="/app_tarea_1/">aquí </a> para volver al inicio</p>
+{% endif %}
+</html>

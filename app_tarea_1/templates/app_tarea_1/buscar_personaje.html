@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Successful Search</title>
+</head>
+<body>
+<form method=POST action="/app_tarea_1/buscar_personaje/">
+        {% csrf_token %}
+        <input type="search" placeholder="Busca un personaje" name="searched">
+        <button type="submit">Buscar</button>
+</form>
+
+{% if personajes.0 %}
+    <h1>Resultados búsqueda:</h1>
+    <ul>
+        {% for i in personajes %}
+        <a href="/app_tarea_1/personajes/{{i}}/"><li>{{i}}</li></a>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h1>¡No se encontró nada!</h1>
+{% endif %}
+
+</body>
+</html>

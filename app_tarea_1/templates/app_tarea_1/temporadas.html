@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{serie}}</title>
+</head>
+
+{% if n_temporadas.0 %}
+    <form method=POST action="/app_tarea_1/buscar_personaje/">
+        {% csrf_token %}
+        <input type="search" placeholder="Busca un personaje" name="searched">
+        <button type="submit">Buscar</button>
+    </form>
+    <h1>{{serie}}</h1>
+    <body>
+    <ul>
+        {% for i in n_temporadas %}
+        <li><a href="/app_tarea_1/{{serie}}/{{i}}/">Temporada {{i}}</a></li>
+        {% endfor %}
+    </ul>
+    </body>
+{% else %}
+    <h1>¡Esa serie no existe! Error 404</h1>
+    <p>Presiona <a href="/app_tarea_1/"> aquí</a> para volver al inicio</p>
+{% endif %}
+</html>

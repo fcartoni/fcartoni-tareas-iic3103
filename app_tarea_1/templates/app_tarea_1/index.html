@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+
+{% if not error %}
+    <h1><strong>Seleccione serie</strong></h1>
+
+    <form method=POST action="/app_tarea_1/buscar_personaje/">
+        {% csrf_token %}
+        <input type="search" placeholder="Busca un personaje" name="searched">
+        <button type="submit">Buscar</button>
+    </form>
+    <body>
+        <ul>
+            {% for i in nombres_series %}
+            {% if i == 'Breaking Bad' %}
+                <li><a href="/app_tarea_1/{{i}}/">{{i}}</a></li>
+            {% elif i == 'Better Call Saul' %}
+                <li><a href="/app_tarea_1/{{i}}/">{{i}}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </body>
+{% else %}
+<h1>API Error: Status Code {{error}}</h1>
+<p>Haz click <a href="/app_tarea_1/"> aquí </a> para volver al inicio</p>
+{% endif %}
+</html>

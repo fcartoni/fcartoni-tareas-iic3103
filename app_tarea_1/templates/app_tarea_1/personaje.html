@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<form method=POST action="/app_tarea_1/buscar_personaje/">
+        {% csrf_token %}
+        <input type="search" placeholder="Busca un personaje" name="searched">
+        <button type="submit">Buscar</button>
+    </form>
+{% if response.0 %}
+    <img src="{{ response.0.img }}" alt="img" height="499">
+    <body>
+    <ul>
+        {% for key, categoria in response.0.items %}
+            {% if categoria != None %}
+                {% if key == 'appearance' %}
+                    <li>Breaking Bad Appearance :
+                    {% if response.0.appearance.0 %}
+                        {% for i in response.0.appearance %}
+                         <a href="/app_tarea_1/Breaking Bad/{{i}}/">Temporada {{i}}</a></li>
+                        {% endfor %}
+                    {% else %}
+                        No appearance
+                    {% endif %}
+                {% elif key == 'better_call_saul_appearance' %}
+                    <li>Better Call Saul Appearance :
+                    {% if response.0.better_call_saul_appearance.0 %}
+                        {% for i in response.0.better_call_saul_appearance %}
+                         <a href="/app_tarea_1/Better Call Saul/{{i}}/">Temporada {{i}}</a></li>
+                        {% endfor %}
+                    {% else %}
+                        No appearance
+                    {% endif %}
+                {% elif key == 'occupation' %}
+                    <li>Occupation :
+                    {% if response.0.occupation.0 %}
+                        {% for i in response.0.occupation %}
+                            {{i}}.</li>
+                        {% endfor %}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                {% elif key != 'char_id' and key != 'img' and key != 'category'%}
+                <li>{{ key }} : {{ categoria }}</li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <ul>Quotes:
+        {% if quotes.0 %}
+            {% for i in quotes%}
+                    <li>{{i.quote}}</li>
+            {% endfor %}
+        {% else %}
+        No quotes for this character
+        {% endif %}
+    </ul>
+    </body>
+{% else %}
+    <h1> ¡Ese personaje no existe! Error: 404</h1>
+    <p>Presiona <a href="/app_tarea_1/">aquí </a> para volver al inicio</p>
+{% endif %}
+</html>
